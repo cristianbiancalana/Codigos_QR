@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Código QR</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/dist/qrcode.min.js"></script>
+    <script src="./qrcodejs-master/qrcode.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+        <header id="titulo">
+            Generator Code QR de Cedisur</header>
+        <div id="general">
+            <section id="datos">
+                <label id="nombre" for="">Ingresar link</label>
+                <input type="text" id="texto" >
+                <button id="generarQR">Generar Código QR</button>
+            </section>
+            
+        </div>
+        <div id="codigoQR">  </div>
+        <img src="./Logo Full2 (002).png" alt="" id="logo">
+
+        <footer id="pie">Generator Code QR</footer>
+    <script>
+        // Función para generar el código QR
+        function generarQR() {
+            var texto = document.getElementById("texto").value;
+            var codigoQRContainer = document.getElementById("codigoQR");
+            // Crea un nuevo objeto QRCode
+            if(!codigoQRContainer.querySelector("img")){
+            var qrcode = new QRCode(document.getElementById("codigoQR"), {
+                text: texto,
+                width: 1000,
+                height: 1000
+                });
+            };
+        }
+
+        // Llama a la función generarQR() cuando se hace clic en el botón
+        document.getElementById("generarQR").onclick = function() {
+            generarQR();
+        };
+        
+    </script>
+</body>
+</html>
